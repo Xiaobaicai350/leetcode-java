@@ -4,7 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 输入：nums = [1,1,1], k = 2
+ * 题目中要求得到的数组是下标连续的，所以只能这样写
+ * 前缀和有点不好理解
+ * sum=1的时候，map{[0,1]} 1-3=-2 没有
+ * sum=3的时候 map{[0,1][1,1]} 3-3=0 有
+ * sum=6的时候 map{[0,1][1,1][3,1]} 6-3=3 有
+ * 输入：nums = [1,2,3], k = 3
  * 输出：2
  */
 class Solution560 {
