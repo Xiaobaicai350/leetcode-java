@@ -21,6 +21,7 @@ import java.util.List;
 //        return res;
 //    }
 /**
+ *  这种方法的思想是，用两个数组来记录每一个字符出现了多少次，如果出现的次数相等，就说明是异构体，其实更简单
  * 输入: s = "cbaebabacd", p = "abc"
  * 输出: [0,6]
  */
@@ -46,7 +47,7 @@ class Solution438 {
             // 现在的位置是窗口准备向右扩张一位
             // 向右扩张一位，然后将对应数组++
             curCounts[s.charAt(right) - 'a']++;
-            // 现在的窗口长度和p的长度一样，可以直接比较数组，如果数组内的元素值一样，说明是同位素
+            // 现在的窗口长度和p的长度一样，可以直接比较数组，如果数组内的元素值一样，说明是异位体
             if (Arrays.equals(curCounts, counts)) {
                 res.add(left);
             }
