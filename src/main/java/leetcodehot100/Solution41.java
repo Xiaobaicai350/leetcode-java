@@ -3,13 +3,11 @@ package leetcodehot100;
 class Solution41 {
     public int firstMissingPositive(int[] nums) {
         int n = nums.length;
-        // 对nums进行排序，排序成有顺序的
         for (int i = 0; i < n; i++) {
             while (nums[i] >= 1 && nums[i] <= n && nums[i] != nums[nums[i] - 1]) {
                 swap(nums, i, nums[i] - 1);
             }
         }
-        // 遍历就可以找出来了
         for (int i = 0; i < n; i++) {
             if (nums[i] != i + 1) {
                 return i + 1;
