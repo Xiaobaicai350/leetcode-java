@@ -13,7 +13,7 @@ class Solution53 {
                 dp[i] = nums[i];
             }
             //更新max的值
-            max=Math.max(dp[i],max);
+            max = Math.max(dp[i], max);
         }
         return max;
     }
