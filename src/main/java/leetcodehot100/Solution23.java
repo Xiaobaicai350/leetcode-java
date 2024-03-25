@@ -9,11 +9,14 @@ import haohao.ListNode;
 public class Solution23 {
     public ListNode mergeKLists(ListNode[] lists) {
         ListNode dummy = new ListNode(0);
+        //用于连接链表
         ListNode cur = dummy;
 
         // 先将k条链表合并为一条链表
         for (int i = 0; i < lists.length; i++) {
+            //将cur去连接每一个链表
             cur.next = lists[i];
+            //遍历到链表的尾节点
             while (cur.next != null) {
                 cur = cur.next;
             }
