@@ -34,6 +34,12 @@ public class Solution148 {
         return dummy.next;
     }
 
+    /**
+     * 归并排序的方法
+     * 效率要比上面那个方法高一些
+     * @param head
+     * @return
+     */
     public ListNode sortList(ListNode head) {
         // 处理特殊情况
         if (head == null || head.next == null) {
