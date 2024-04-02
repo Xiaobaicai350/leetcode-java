@@ -8,7 +8,7 @@ class Solution437 {
         if (root == null) {
             return 0;
         }
-        //
+        //先计算以根节点为最高的节点的情况
         int res = dfs(root, targetSum);
         //递归左右子树，因为不一定非得从根节点进行，只要满足父子关系就可以。
         res += pathSum(root.left, targetSum);
