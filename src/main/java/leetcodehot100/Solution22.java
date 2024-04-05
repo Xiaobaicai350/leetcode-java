@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // https://www.bilibili.com/video/BV16K411R7nm/?spm_id_from=333.337.search-card.all.click&vd_source=2259e5459a8cfd21bcf92bc46bf3beda
+//根据思路进行构建一颗二叉树，左边是加左括号，右边是加右括号。
 class Solution22 {
     List<String> result = new ArrayList<>();
 
