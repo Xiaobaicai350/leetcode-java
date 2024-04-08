@@ -2,7 +2,7 @@ package leetcodehot100;
 
 /**
  * 其实还是二分查找。
- * 只是再比较的时候再加一个判断就可以了
+ * 只是再比较的时候再加一个判断就可以拉
  */
 class Solution33 {
     public int search(int[] nums, int target) {
