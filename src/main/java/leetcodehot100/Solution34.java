@@ -36,7 +36,7 @@ class Solution34 {
             if (target == nums[mid]) {
                 //两个方法只有这里不一样。
                 //到这里说明是target==nums[mid]了已经，但是不确定是不是边界，所以需要验证边界。
-                //如果是数组最后一个元素或者是数组
+                //如果是数组最后一个元素或者是数组右边还有跟这个元素相等的值。
                 if (mid == nums.length - 1 || nums[mid] != nums[mid + 1]) {
                     return mid;
                 } else {
