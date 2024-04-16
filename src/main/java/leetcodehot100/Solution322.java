@@ -1,8 +1,10 @@
 package leetcodehot100;
 
+import java.util.Arrays;
+
 /**
  * 这道题跟完全平方数很像
- * 当遍历到i的时候，
+ * 当遍历到coin[j]的时候，只需要加上dp[i-coin[j]],就是可能是dp[i]了，但是要算出一个最小的当dp[i]
  */
 
 /*
@@ -26,12 +28,10 @@ class Solution322 {
     public int coinChange(int[] coins, int amount) {
         //dp[i]的含义是：当总金额为i的时候。可以凑成总金额的最少硬币数为dp[i]
         int[] dp = new int[amount + 1];
+        //用一个比较大的值（但是不要用最大值，会溢出）把他填满，方便后面进行比较
+        Arrays.fill(dp, amount + 100);
         //初始化dp数组。
         dp[0] = 0;
-        //当凑成总金额的最少硬币数dp[1]为-1的时候，说明凑不齐
-        for (int i = 1; i <= amount; i++) {
-            dp[i] = -1;
-        }
         for (int i = 1; i <= amount; i++) {
             //遍历面值coins数组
             for (int j = 0; j < coins.length; j++) {
@@ -40,10 +40,13 @@ class Solution322 {
                 }
             }
         }
-        return dp[amount];
+        //如果dp[amount]比amount还大，说明没有任何一种硬币组合能组成总金额
+        //所以返回-1
+        if (dp[amount] > amount) {
+            return -1;
+        } else {//否则就是正常情况
+            return dp[amount];
+        }
     }
 
-//    public static void main(String[] args) {
-//        new Solution322().coinChange(new int[]{1, 2, 5}, 11);
-//    }
 }
