@@ -35,5 +35,4 @@ class Solution5 {
         }
         return true;
     }
-
 }
