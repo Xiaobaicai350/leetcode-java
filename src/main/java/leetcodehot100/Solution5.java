@@ -1,6 +1,7 @@
 package leetcodehot100;
 
 class Solution5 {
+
     public String longestPalindrome(String s) {
         String longestPalindrome=s.substring(0,1);
         for (int len = 2; len <= s.length(); len++) {
