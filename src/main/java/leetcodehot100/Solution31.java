@@ -1,23 +1,28 @@
 package leetcodehot100;
 
-class Solution31 {
+import java.util.Arrays;
+
+public class Solution31 {
     public void nextPermutation(int[] nums) {
-        // 从数组的末尾开始向前查找
-        for (int i = nums.length - 1; i >= 0; i--) {
-            // 再次从数组的末尾开始向前查找，寻找第一个比nums[i]大的数
-            for (int j = nums.length - 1; j > i; j--) {
-                if (nums[i] < nums[j]) {
-                    // 交换nums[i]和nums[j]
-                    swap(nums, i, j);
-                    // 对i+1到数组末尾的部分进行冒泡排序
-                    bubbleSort(nums, i + 1, nums.length);
-                    return; // 完成一次排列，返回
-                }
-            }
+        //数组倒数第二个下标
+        int i = nums.length - 2;
+        // 从数组的末尾开始向前查找，找到第一个递减的元素
+        while (i >= 0 && nums[i] >= nums[i + 1]) {
+            i--;
         }
-        // 如果没有找到可以交换的数，说明整个数组是逆序的，即最大的排列
-        // 对整个数组进行冒泡排序，得到最小的排列，即升序排列
-        bubbleSort(nums, 0, nums.length);
+
+        //现在的情况是：nums[i]<nums[i+1]
+        // 从数组末尾找到第一个大于nums[i]的元素并交换
+        if (i >= 0) {
+            int j = nums.length - 1;
+            while (j >= 0 && nums[i] >= nums[j]) {
+                j--;
+            }
+            swap(nums, i, j);
+        }
+
+        // 反转i之后的所有元素，以得到下一个排列(由于所有的数字都是这样的出来的，记住就可以了)
+        reverse(nums, i + 1, nums.length - 1);
     }
 
     // 用于交换数组中的两个元素
@@ -27,15 +32,17 @@ class Solution31 {
         nums[j] = temp;
     }
 
-    // 冒泡排序，用于对数组的一部分进行排序
-    private void bubbleSort(int[] arr, int start, int end) {
-        for (int i = start; i < end - 1; i++) {
-            for (int j = start; j < end - i - 1 + start; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    // 如果当前元素大于下一个元素，交换它们
-                    swap(arr, j, j + 1);
-                }
-            }
+    // 反转数组的一部分
+    private void reverse(int[] nums, int start, int end) {
+        while (start < end) {
+            swap(nums, start, end);
+            start++;
+            end--;
         }
     }
+
+    public static void main(String[] args) {
+        new Solution31().nextPermutation(new int[]{1,2,4,3});
+    }
 }
+
