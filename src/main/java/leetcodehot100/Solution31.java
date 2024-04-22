@@ -1,7 +1,5 @@
 package leetcodehot100;
 
-import java.util.Arrays;
-
 public class Solution31 {
     public void nextPermutation(int[] nums) {
         //数组倒数第二个下标
@@ -41,8 +39,5 @@ public class Solution31 {
         }
     }
 
-    public static void main(String[] args) {
-        new Solution31().nextPermutation(new int[]{1,2,4,3});
-    }
 }
 
