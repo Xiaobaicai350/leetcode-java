@@ -1,4 +1,4 @@
-package sort;
+package sort.test;
 
 public interface IArraySort {
 
