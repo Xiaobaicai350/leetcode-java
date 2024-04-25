@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class SelectionSort implements IArraySort {
 
     @Override
-    public int[] sort(int[] arr) throws Exception {
+    public void sort(int[] arr) throws Exception {
         // 总共要经过 N-1 轮比较
         for (int i = 0; i < arr.length - 1; i++) {
             //记录最小值的下标
@@ -31,6 +31,5 @@ public class SelectionSort implements IArraySort {
                 arr[min] = tmp;
             }
         }
-        return arr;
     }
 }

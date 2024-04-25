@@ -7,7 +7,7 @@ import sort.test.IArraySort;
  */
 public class BubbleSort implements IArraySort {
     @Override
-    public int[] sort(int[] arr) {
+    public void sort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             for (int j = 0; j < arr.length - i; j++) {
                 //注意这里比较的只有j
@@ -18,6 +18,5 @@ public class BubbleSort implements IArraySort {
                 }
             }
         }
-        return arr;
     }
 }

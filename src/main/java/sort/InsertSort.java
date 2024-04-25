@@ -8,7 +8,7 @@ import sort.test.IArraySort;
  */
 public class InsertSort implements IArraySort {
     @Override
-    public int[] sort(int[] arr) throws Exception {
+    public void sort(int[] arr) throws Exception {
         // 从下标为1的元素开始选择合适的位置插入
         for (int i = 1; i < arr.length; i++) {
             // 记录要插入的数据
@@ -24,6 +24,5 @@ public class InsertSort implements IArraySort {
                 arr[j] = tmp;
             }
         }
-        return arr;
     }
 }
