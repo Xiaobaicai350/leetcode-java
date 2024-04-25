@@ -5,6 +5,7 @@ import sort.test.IArraySort;
 import java.util.Arrays;
 
 /**
+ * 选择排序
  * 算法步骤：
  * 从剩下的数组中找到最小的放在前部
  */

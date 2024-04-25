@@ -2,13 +2,10 @@ package sort;
 
 import sort.test.IArraySort;
 
+/**
+ * 冒泡排序
+ */
 public class BubbleSort implements IArraySort {
-    /**
-     * 基础版本的冒泡排序
-     *
-     * @param arr
-     * @return
-     */
     @Override
     public int[] sort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
