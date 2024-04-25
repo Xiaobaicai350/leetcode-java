@@ -2,5 +2,5 @@ package sort.test;
 
 public interface IArraySort {
 
-    int[] sort(int[] sourceArray) throws Exception;
+    int[] sort(int[] arr) throws Exception;
 }
