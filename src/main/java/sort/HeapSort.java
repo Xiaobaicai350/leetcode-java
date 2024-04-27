@@ -2,7 +2,6 @@ package sort;
 
 import sort.test.IArraySort;
 
-import java.util.Arrays;
 
 public class HeapSort implements IArraySort {
 
@@ -19,13 +18,15 @@ public class HeapSort implements IArraySort {
             heapify(arr, 0, len); // 从堆顶开始调整堆
         }
     }
+
     // 构建最大堆
     private void buildMaxHeap(int[] arr, int len) {
         // 从最后一个非叶子节点开始，向上逐个节点进行堆化
-        for (int i = (int) Math.floor(len / 2); i >= 0; i--) {
+        for (int i = len / 2; i >= 0; i--) {
             heapify(arr, i, len);
         }
     }
+
     // 堆化过程，确保堆的属性
     private void heapify(int[] arr, int i, int len) {
         // 计算左右子节点的索引
