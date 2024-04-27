@@ -17,7 +17,7 @@ class Solution11 {
             int newAns = Math.min(height[l], height[r]) * (r - l);
             // ans用于保存容量的最大值
             ans = Math.max(ans, newAns);
-            // 移动短板，如果是左边的板比较短，就往右移动
+            // 移动短板，如果是左边的板比较短，就往右移动（为什么要移动短板呢？因为只有移动短板才有比现在结果更优的解）
             if (height[l] < height[r]) {
                 l++;
             } else {
