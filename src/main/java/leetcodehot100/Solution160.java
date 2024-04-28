@@ -6,7 +6,7 @@ import haohao.ListNode;
 //交换着走的时候就会碰面，这是一个很巧妙的方法
 public class Solution160 {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        //分别给AB一个指针
+        //分别给AB一个指针，用于遍历链表
         ListNode a = headA;
         ListNode b = headB;
         //当a==b的时候会退出,因为我们找的就是a==b的情况
@@ -23,6 +23,7 @@ public class Solution160 {
                 b = b.next;
             }
         }
+        //这里返回a和b都行，因为上面循环退出的时候a==b
         return a;
     }
 }
