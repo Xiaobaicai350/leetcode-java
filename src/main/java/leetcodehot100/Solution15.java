@@ -41,6 +41,7 @@ class Solution15 {
                     while (right > left && nums[left] == nums[left + 1]) {//跳过重复的结果
                         left++;
                     }
+                    //继续进行遍历，看剩下的数组还有没有合适的解
                     right--;
                     left++;
                 }
