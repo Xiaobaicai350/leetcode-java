@@ -34,7 +34,7 @@ public class RadixSort implements IArraySort {
 
         // 从个位开始，对每一位进行排序
         for (int i = 0; i < maxDigit; i++, dev *= 10, mod *= 10) {
-            // 考虑负数的情况，队列数扩展一倍，[0-9]对应负数，[10-19]对应正数 (bucket + 10)
+            // 考虑负数的情况，所以队列数扩展一倍，[0-9]对应负数，[10-19]对应正数 (bucket + 10)
             int[][] counter = new int[mod * 2][0];
 
             // 分配数组中的每个值到对应的桶中
