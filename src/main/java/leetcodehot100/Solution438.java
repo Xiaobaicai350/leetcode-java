@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-//    暴力解法
+//    暴力解法,会超时
 //    public List<Integer> findAnagrams(String s, String p) {
 //        ArrayList<Integer> res = new ArrayList<>();
 //        char[] charsS=s.toCharArray();
@@ -22,9 +22,14 @@ import java.util.List;
 //    }
 
 /**
- * 这种方法的思想是，用两个数组来记录每一个字符出现了多少次，如果出现的次数相等，就说明是异构体，其实更简单
- * 输入: s = "cbaebabacd", p = "abc"
- * 输出: [0,6]
+ * 这种方法的思想是:用两个数组来记录每一个字符出现了多少次，如果出现的次数相等，就说明是异构体
+ */
+/*
+输入: s = "cbaebabacd", p = "abc"
+输出: [0,6]
+解释:
+起始索引等于 0 的子串是 "cba", 它是 "abc" 的异位词。
+起始索引等于 6 的子串是 "bac", 它是 "abc" 的异位词。
  */
 class Solution438 {
     public List<Integer> findAnagrams(String s, String p) {
@@ -39,6 +44,7 @@ class Solution438 {
             counts[p.charAt(i) - 'a']++;
         }
         // 初始化当前数组，用于记录当前窗口内的字符都出现了几次
+        // 注意，这里只加到了pLen-1的长度，至于缺了一个在下面进行扩张
         int[] curCounts = new int[26];
         for (int i = 0; i < p.length() - 1; i++) {
             curCounts[s.charAt(i) - 'a']++;
