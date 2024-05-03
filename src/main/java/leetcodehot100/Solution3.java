@@ -3,6 +3,11 @@ package leetcodehot100;
 import java.util.HashSet;
 import java.util.Set;
 
+/*
+输入: s = "abcabcbb"
+输出: 3
+解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
+ */
 /**
  * 用一个set来记录目前的窗口里面都有什么字符
  * 每次窗口走的时候去set里面验证一下有没有这个字符，如果有，就需要缩小窗口，如果没有，就扩大窗口大小，并且记录比较最大值
