@@ -4,6 +4,10 @@ import haohao.ListNode;
 
 import java.util.ArrayList;
 
+/*
+输入：head = [1,2,2,1]
+输出：true
+ */
 
 /**
  * 这道题的方法就是把链表中的数据都存储到集合中，就好验证拉
