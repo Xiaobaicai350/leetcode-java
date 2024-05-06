@@ -1,5 +1,6 @@
 package leetcodehot100;
 
+//一道技巧题目，手动试试，记住就好了。
 //这道题先翻转前半部分，再翻转后半部分，再整个翻转是一样能过的，不过数组的下标要变一下
 class Solution189 {
     public void rotate(int[] nums, int k) {
