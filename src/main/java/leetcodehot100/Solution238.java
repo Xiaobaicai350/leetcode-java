@@ -22,11 +22,11 @@ class Solution238 {
         left[0] = 1;
         // 初始化右数组
         right[n - 1] = 1;
-        // 给左数组赋值
+        // 从左往右 给左数组赋值
         for (int i = 1; i < n; i++) {
             left[i] = left[i - 1] * nums[i - 1];
         }
-        // 给右数组赋值
+        // 从右往左 给右数组赋值
         for (int i = n - 2; i > -1; i--) {
             right[i] = right[i + 1] * nums[i + 1];
         }
