@@ -4,6 +4,7 @@ import haohao.ListNode;
 
 //其实基本思想就是:链表1的长度+链表2的长度=链表2的长度+链表1的长度。
 //交换着走的时候就会碰面，这是一个很巧妙的方法
+// 因为必然会有环了，所以才可以用这种方法
 public class Solution160 {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         //分别给AB一个指针，用于遍历链表
