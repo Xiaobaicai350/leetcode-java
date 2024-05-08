@@ -22,7 +22,7 @@ public class Solution141 {
             }
             cur = cur.next;
         }
-        // 如果到这里说明出循环了，就没环了
+        // 如果到这里说明出循环了，有环的话在循环里就返回了，现在说明没环了
         return false;
     }
 }
