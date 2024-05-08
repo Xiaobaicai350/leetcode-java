@@ -5,7 +5,7 @@ import haohao.ListNode;
 import java.util.HashSet;
 
 /**
- * 和141一样，不同的是返回的节点不同
+ * 和141一样，不同的是返回的结果不同
  */
 public class Solution142 {
     public ListNode detectCycle(ListNode head) {
