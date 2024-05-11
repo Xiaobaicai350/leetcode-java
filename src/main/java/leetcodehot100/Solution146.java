@@ -37,6 +37,7 @@ class LRUCache {
         this.size = 0;
         this.capacity = capacity;
         this.cache = new HashMap<>();
+        //新建头尾
         this.head = initDLinkedNode(0, 0);
         this.tail = initDLinkedNode(0, 0);
         this.head.next = this.tail;
