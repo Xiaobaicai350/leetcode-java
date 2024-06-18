@@ -8,14 +8,24 @@ import haohao.ListNode;
  */
 class Solution92 {
     public ListNode reverseBetween(ListNode head, int left, int right) {
-        ListNode DummyNode = new ListNode();
-        DummyNode.next = head;
-        ListNode cur = DummyNode;
-        int i = 0;
-        while (i < left) {
-            cur = cur.next;
-            i++;
+        // 设置 dummyNode 是这一类问题的一般做法
+        ListNode dummyNode = new ListNode(-1);
+        dummyNode.next = head;
+        ListNode pre = dummyNode;
+        for (int i = 0; i < left - 1; i++) {
+            pre = pre.next;
         }
-        //现在
+        //现在pre指向需要翻转的前一个节点
+        //cur是要翻转的第一个节点
+        ListNode cur = pre.next;
+        ListNode next;
+        //这里开始翻转链表
+        for (; left < right; left++) {
+            next = cur.next;
+            cur.next = next.next;
+            next.next = pre.next;
+            pre.next = next;
+        }
+        return dummyNode.next;
     }
 }
