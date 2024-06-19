@@ -41,7 +41,7 @@ class Solution56 {
         }
         // 最后一个要手动加入到集合中
         res.add(new int[] { left, right });
-        //集合转换成数组
-        return (int[][]) res.toArray();
+        //集合转换成数组,注意这里需要给二维数组创建空间
+        return  res.toArray(new int[res.size()][]);
     }
 }
