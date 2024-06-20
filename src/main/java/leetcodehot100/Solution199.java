@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * 这道题其实是借助一个队列来实现逐层遍历，只是在某一层的最后一个位置把最后一个节点取出来了而已。
- * 逐层遍历也有对应的题
+ * 是跟逐层遍历二叉树一个思想
  */
 class Solution199 {
     public List<Integer> rightSideView(TreeNode root) {
@@ -19,7 +19,7 @@ class Solution199 {
             return res;
         }
         queue.addFirst(root);
-        for (; !queue.isEmpty(); ) {
+        while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 TreeNode node = queue.removeLast();
