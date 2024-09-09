@@ -20,7 +20,7 @@ public class Main1 {
             Arrays.sort(ints);
             System.out.print(ints[0]);
             for (int j = 1; j < ints.length; j++) {
-                System.out.print(" "+ints[j]);
+                System.out.print(" " + ints[j]);
             }
         }
     }
