@@ -1,9 +1,6 @@
 package leetcodehot100;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /*
 输入：intervals = [[1,3],[2,6],[8,10],[15,18]]
@@ -16,13 +13,12 @@ import java.util.List;
  */
 class Solution56 {
     public int[][] merge(int[][] intervals) {
-        // 新建结果集
-        List<int[]> res = new LinkedList<>();
-        // 按照左边界排序，这里需要注意自定义排序方法
-        Arrays.sort(intervals, new Comparator<int[]>() {
-            @Override
+        //自定义结果集
+        ArrayList<int[]> res = new ArrayList<>();
+        //自定义排序器，按照左边排序，排序的对象是一维数组
+        Arrays.sort(intervals,new Comparator<int[]>(){
             public int compare(int[] o1, int[] o2) {
-                return o1[0]-o2[0];
+                return o1[0] - o2[0];
             }
         });
         // 初始化左边界
@@ -45,7 +41,7 @@ class Solution56 {
         }
         // 最后一个要手动加入到集合中
         res.add(new int[] { left, right });
-        // 集合转换成数组
-        return res.toArray(new int[res.size()][]);
+        //集合转换成数组,注意这里需要给二维数组创建空间
+        return  res.toArray(new int[res.size()][]);
     }
 }

@@ -8,6 +8,7 @@ class Solution101 {
         return dfs(root.left, root.right);
     }
 
+    //dfs返回左右子树是否对称
     private boolean dfs(TreeNode left, TreeNode right) {
         //如果左右支都为空，这种情况合理
         if (left == null && right == null) {
