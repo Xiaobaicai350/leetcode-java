@@ -1,6 +1,6 @@
 package hardCode;
 
-public class ThreadOrder {
+public class PrintABC1 {
     static Object lock = new Object();
     //标识当前要打印的是哪个字符
     //比如cur=1时打印A，cur=2时打印B，cur=3时打印C
@@ -22,9 +22,10 @@ public class ThreadOrder {
                 synchronized (lock) {
                     while (cur != order) {
                         try {
+                            //wait方法会让当前线程释放锁，并进入等待状态，直到被其他线程唤醒。
                             lock.wait();
                         } catch (InterruptedException e) {
-                            Thread.currentThread().interrupt();
+                            e.printStackTrace();
                         }
                     }
                     System.out.println(charToPrint);
@@ -40,11 +41,11 @@ public class ThreadOrder {
     }
 }
 
-class ThreadOrderMain {
+class PrintABC1Main {
     public static void main(String[] args) {
-        Thread thread1 = new Thread(new ThreadOrder.CharPrinter("A", 1));
-        Thread thread2 = new Thread(new ThreadOrder.CharPrinter("B", 2));
-        Thread thread3 = new Thread(new ThreadOrder.CharPrinter("C", 3));
+        Thread thread1 = new Thread(new PrintABC1.CharPrinter("A", 1));
+        Thread thread2 = new Thread(new PrintABC1.CharPrinter("B", 2));
+        Thread thread3 = new Thread(new PrintABC1.CharPrinter("C", 3));
         thread1.start();
         thread2.start();
         thread3.start();
