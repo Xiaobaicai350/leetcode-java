@@ -1,4 +1,4 @@
-package 米哈游0907;
+package writtenExamination.米哈游0907;
 
 import java.util.HashMap;
 import java.util.Scanner;
