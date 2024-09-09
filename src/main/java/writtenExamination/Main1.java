@@ -1,4 +1,4 @@
-package 去哪儿笔试0906;
+package writtenExamination.去哪儿笔试0906;
 
 import java.util.Arrays;
 import java.util.Scanner;

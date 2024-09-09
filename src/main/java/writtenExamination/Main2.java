@@ -1,9 +1,8 @@
-package 去哪儿笔试0906;
+package writtenExamination.去哪儿笔试0906;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 // 注意类名必须为 Main, 不要有任何 package xxx 信息
 /*

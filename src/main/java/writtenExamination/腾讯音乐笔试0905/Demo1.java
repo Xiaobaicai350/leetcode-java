@@ -1,4 +1,4 @@
-package 腾讯音乐笔试0905;
+package writtenExamination.腾讯音乐笔试0905;
 
 import java.util.ArrayList;
 
