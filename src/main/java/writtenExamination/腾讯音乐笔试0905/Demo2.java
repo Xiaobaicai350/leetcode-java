@@ -1,6 +1,6 @@
 package writtenExamination.腾讯音乐笔试0905;
 
-import haohao.ListNode;
+import entity.ListNode;
 
 import java.util.ArrayList;
 import java.util.Objects;

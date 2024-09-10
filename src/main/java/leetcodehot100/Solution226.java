@@ -1,6 +1,6 @@
 package leetcodehot100;
 
-import haohao.TreeNode;
+import entity.TreeNode;
 
 
 class Solution226 {

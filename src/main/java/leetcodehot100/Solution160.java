@@ -1,6 +1,6 @@
 package leetcodehot100;
 
-import haohao.ListNode;
+import entity.ListNode;
 
 //其实基本思想就是:链表1的长度+链表2的长度=链表2的长度+链表1的长度。
 //交换着走的时候就会碰面，这是一个很巧妙的方法

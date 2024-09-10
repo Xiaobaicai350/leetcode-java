@@ -1,6 +1,6 @@
 package leetcodehot100;
 
-import haohao.ListNode;
+import entity.ListNode;
 
 /**
  * 这道题的核心思想就是先把k个升序链表进行合并，然后在进行排序就可以了。

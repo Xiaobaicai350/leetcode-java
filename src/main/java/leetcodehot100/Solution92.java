@@ -1,6 +1,6 @@
 package leetcodehot100;
 
-import haohao.ListNode;
+import entity.ListNode;
 
 /*
 输入：head = [1,2,3,4,5], left = 2, right = 4

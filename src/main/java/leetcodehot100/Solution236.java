@@ -1,6 +1,6 @@
 package leetcodehot100;
 
-import haohao.TreeNode;
+import entity.TreeNode;
 
 /**
  * 这道题首先应该确定递归的终止条件

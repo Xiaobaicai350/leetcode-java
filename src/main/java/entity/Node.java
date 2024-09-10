@@ -1,4 +1,4 @@
-package haohao;
+package entity;
 
 public class Node {
     public int val;

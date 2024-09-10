@@ -1,6 +1,6 @@
 package leetcodehot100;
 
-import haohao.ListNode;
+import entity.ListNode;
 
 /**
  * 这道题用笔模拟一下过程就可以了

@@ -1,7 +1,7 @@
 package leetcodehot100;
 
 
-import haohao.TreeNode;
+import entity.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

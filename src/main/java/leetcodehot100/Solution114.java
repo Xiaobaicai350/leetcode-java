@@ -1,6 +1,6 @@
 package leetcodehot100;
 
-import haohao.TreeNode;
+import entity.TreeNode;
 
 /**
  * 题目中给了两个条件：

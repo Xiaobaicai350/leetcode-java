@@ -1,6 +1,6 @@
 package leetcodehot100;
 
-import haohao.ListNode;
+import entity.ListNode;
 
 /**
  * 这道题就是模拟十进制进位，然后需要注意的是那里/10 %10的操作

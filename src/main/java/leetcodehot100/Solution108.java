@@ -1,9 +1,7 @@
 package leetcodehot100;
 
 
-import haohao.TreeNode;
-
-import java.util.Arrays;
+import entity.TreeNode;
 
 
 class Solution108 {

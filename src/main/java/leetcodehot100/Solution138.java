@@ -1,6 +1,6 @@
 package leetcodehot100;
 
-import haohao.Node;
+import entity.Node;
 
 import java.util.HashMap;
 import java.util.Map;
