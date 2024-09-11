@@ -10,7 +10,7 @@ import java.util.Scanner;
  */
 //0 2 2
 public class Main1 {
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         int[][] ints = new int[n][2];
@@ -43,6 +43,23 @@ public class Main1 {
                     }
                     System.out.print(res + " ");
                 }
+            }
+        }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
+        for (int i = 0; i < T; i++) {
+            int n=sc.nextInt();
+            int m=sc.nextInt();
+            //一共三种情况，当n==1时只能是0，当m是2时候只能是2，除此之外只能是2m
+            //其实当时写的时候就是模拟
+            if(n==1){
+                System.out.println(0);
+            }else if(n==2){
+                System.out.println(2);
+            }else {
+                System.out.println(2*m);
             }
         }
     }
