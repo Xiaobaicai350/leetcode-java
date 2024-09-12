@@ -18,12 +18,16 @@ class Solution121 {
         int minprice = Integer.MAX_VALUE;
         int maxprofit = 0;
         for (int i = 0; i < prices.length; i++) {
+            //每次遍历都更新最低价
             if (prices[i] < minprice) {
                 minprice = prices[i];
-            } else if (prices[i] - minprice > maxprofit) {
+            }
+            //也判断是否当前天数卖出是否可以是最高利润
+            if (prices[i] - minprice > maxprofit) {
                 maxprofit = prices[i] - minprice;
             }
         }
+        //遍历完成后，maxprofit就是最大的
         return maxprofit;
     }
     /**
