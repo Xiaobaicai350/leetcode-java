@@ -18,6 +18,7 @@ class Solution198 {
         //初始化dp数组
         dp[0] = nums[0];//意思是前1间房子最多能偷dp[0]块钱
         dp[1] = Math.max(nums[0], nums[1]);//意思是前2间房子最多能偷dp[1]块钱
+        //从第三间房屋开始偷
         for (int i = 2; i < nums.length; i++) {
             /*
              之后只有两种可能
@@ -25,6 +26,7 @@ class Solution198 {
              2.不偷窃第 k 间房屋，偷窃总金额为前 k−1 间房屋的最高总金额。
              之后取这两者的最大值就好了
              */
+            //dp[2]=Math.max(dp[0] + nums[i], dp[1]) 前者是偷第3间 后者是不偷
             dp[i] = Math.max(dp[i - 2] + nums[i], dp[i - 1]);
         }
         return dp[nums.length - 1];
