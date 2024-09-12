@@ -35,7 +35,9 @@ class Solution322 {
         for (int i = 1; i <= amount; i++) {
             //遍历面值coins数组
             for (int j = 0; j < coins.length; j++) {
+                //如果硬币的金额比i小，说明可以更新dp数组了
                 if (coins[j] <= i) {
+                    //递推公式是如下
                     dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1);
                 }
             }
