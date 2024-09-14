@@ -6,9 +6,6 @@ import java.util.HashMap;
 import java.util.*;
 
 //   6,[8, 3, 7, 5, 6, 2],[[1, 0], [2, 1], [3, 1], [4, 2]],3
-
-import java.util.*;
-
 public class Solution2 {
     // 计算在给定的任务数量k内，可以获得的最多点数
     public int maxPoints(int n, int[] points, int[][] dependencies, int k) {
