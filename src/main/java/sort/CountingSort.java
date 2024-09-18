@@ -1,7 +1,5 @@
 package sort;
 
-import sort.test.IArraySort;
-
 /*
 算法的步骤如下：
 （1）找出待排序的数组中最大元素，并且根据最大值创建最大值+1的数组。

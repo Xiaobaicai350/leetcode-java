@@ -1,7 +1,5 @@
 package sort;
 
-import sort.test.IArraySort;
-
 /**
  * 希尔排序
  * <p>

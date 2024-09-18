@@ -1,7 +1,5 @@
 package sort;
 
-import sort.test.IArraySort;
-
 
 public class HeapSort implements IArraySort {
 

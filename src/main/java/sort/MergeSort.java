@@ -1,7 +1,5 @@
 package sort;
 
-import sort.test.IArraySort;
-
 /*
 算法步骤:
 1.申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列；

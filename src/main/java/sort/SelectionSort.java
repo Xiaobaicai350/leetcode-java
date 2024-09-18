@@ -1,9 +1,5 @@
 package sort;
 
-import sort.test.IArraySort;
-
-import java.util.Arrays;
-
 /**
  * 选择排序
  * 算法步骤：

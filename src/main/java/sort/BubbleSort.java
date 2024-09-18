@@ -1,7 +1,5 @@
 package sort;
 
-import sort.test.IArraySort;
-
 /**
  * 冒泡排序
  */
