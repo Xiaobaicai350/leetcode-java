@@ -88,6 +88,7 @@ public class Solution1 {
 
     public static void main(String[] args) {
 
-        new Solution1().findIntersection(new int[][]{{0, 3}, {5, 9}, {11, 13}}, new int[][]{{2, 6}, {8, 10}});
+        int[][] intersection = new Solution1().findIntersection(new int[][]{{0, 3}, {5, 9}, {11, 13}}, new int[][]{{2, 6}, {8, 10}});
+        System.out.println();
     }
 }
