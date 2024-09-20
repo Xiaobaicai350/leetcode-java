@@ -3,6 +3,9 @@ package interview.途虎养车一面;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+//处理一个字符串，将其中的数字和英文字母分别提取出来，数字去重且保持原有顺序，然后将数字和字母按顺序拼接成一个新的字符串。
+// 数字和字母之外的字符（如中文字符）将被忽略。处理一个字符串，将其中的数字和英文字母分别提取出来，
+// 数字去重且保持原有顺序，然后将数字和字母按顺序拼接成一个新的字符串。数字和字母之外的字符（如中文字符）将被忽略。
 public class StringProcessor {
 
     public static void main(String[] args) {
