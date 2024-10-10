@@ -22,6 +22,7 @@ class Solution234 {
             list.add(cur.val);
             cur = cur.next;
         }
+        //利用双指针进行验证
         //直接用i和j指向数组的最左边和最右边，然后开始验证
         for (int i = 0, j = list.size() - 1; i < j; i++, j--) {
             if (!list.get(i).equals(list.get(j))) {
