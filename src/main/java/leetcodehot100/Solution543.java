@@ -26,12 +26,12 @@ class Solution543 {
         if (node == null) {
             return 0;
         }
-        //分别记录左右支的最长长度
+        //分别记录以左右支为根结点的最长长度
         int lLen = dfs(node.left);
         int rLen = dfs(node.right);
-        //给结果赋值
+        //更新结果
         ans = Math.max(ans, lLen + rLen);
-        return Math.max(lLen, rLen) + 1;// 返回该节点为根的子树的深度
+        return Math.max(lLen, rLen) + 1;// 返回该节点为根的子树的最长深度
     }
 
 }
