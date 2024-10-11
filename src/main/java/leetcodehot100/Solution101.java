@@ -8,8 +8,13 @@ class Solution101 {
         return dfs(root.left, root.right);
     }
 
-    //dfs返回左右子树是否对称
+    //dfs函数返回左右子树是否对称
     private boolean dfs(TreeNode left, TreeNode right) {
+        //需要判断三种情况：
+        //1.左右子树都为空 这种是合理的
+        //2.左右子树有一个为空 这种说明不对称了 不合理
+        //3.左右子树都不为空，但是值不相等 不合理 不对称
+
         //如果左右支都为空，这种情况合理
         if (left == null && right == null) {
             return true;
