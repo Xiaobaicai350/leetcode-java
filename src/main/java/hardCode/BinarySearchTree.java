@@ -5,15 +5,14 @@ import entity.TreeNode;
 
 public class BinarySearchTree {
     TreeNode root;
-    public BinarySearchTree() {
-        root = null;
-    }
-    // 插入节点
+
+    // 插入节点（这个是包装了一下下面的insertR方法）
     void insert(int val) {
-        root = insertRec(root, val);
+        root = insertR(root, val);
     }
+
     // 插入节点，返回值为根节点
-    public TreeNode insertRec(TreeNode root, int val) {
+    public TreeNode insertR(TreeNode root, int val) {
         // 如果树为空，返回新的节点
         if (root == null) {
             root = new TreeNode(val);
@@ -21,25 +20,23 @@ public class BinarySearchTree {
         }
         // 否则，递归地向下查找正确的位置并插入
         if (val < root.val) {
-            root.left = insertRec(root.left, val);
+            root.left = insertR(root.left, val);
         } else if (val > root.val) {
-            root.right = insertRec(root.right, val);
+            root.right = insertR(root.right, val);
         }
         // 返回根节点
         return root;
     }
-    // 中序遍历
-    void inorder() {
-        inorderRec(root);
-    }
-    // 递归中序遍历
-    void inorderRec(TreeNode root) {
+
+    // 中序遍历（二叉搜索树的性质就是中序遍历的顺序是有序的）
+    void inorder(TreeNode root) {
         if (root != null) {
-            inorderRec(root.left);
+            inorder(root.left);
             System.out.print(root.val + " ");
-            inorderRec(root.right);
+            inorder(root.right);
         }
     }
+
 
     //二叉搜索树的中序遍历是有序的
     public static void main(String[] args) {
@@ -56,7 +53,7 @@ public class BinarySearchTree {
 
         /* 中序遍历二叉排序树 */
         System.out.println("中序遍历二叉排序树:");
-        tree.inorder();
+        tree.inorder(tree.root);
     }
 }
 
