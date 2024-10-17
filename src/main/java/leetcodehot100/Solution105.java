@@ -9,6 +9,9 @@ import java.util.Map;
  * 前序遍历 根左右
  * 中序遍历 左根右
  */
+/*
+preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
+ */
 class Solution105 {
     // 构造哈希映射，帮助我们快速定位根节点
     // key存储的是中序遍历的值，value存储的是对应的下标
