@@ -17,11 +17,12 @@ public class FindPathNode {
     }
 
     private boolean findPathHelper(TreeNode node, TreeNode target, List<TreeNode> path) {
-        // 如果节点为空，返回false
+        // 如果节点为空，返回false，这个也是退出条件
         if (node == null) {
             return false;
         }
-        // 将当前节点添加到路径中
+
+        // 将当前节点添加到路径中（回溯开始）
         path.add(node);
         // 如果当前节点就是目标节点，返回true
         if (node == target) {
@@ -35,7 +36,7 @@ public class FindPathNode {
         if (findPathHelper(node.right, target, path)) {
             return true;
         }
-        // 如果当前节点的左右子树中都没有找到目标节点，说明当前节点不在路径中，将其从路径中移除
+        // 如果当前节点的左右子树中都没有找到目标节点，说明当前节点不在路径中，将其从路径中移除（回溯结束）
         path.remove(path.size() - 1);
         return false;
     }
