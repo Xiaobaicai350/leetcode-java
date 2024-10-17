@@ -18,15 +18,19 @@ class Solution199 {
         if (root == null) {
             return res;
         }
+        //根结点入队
         queue.addFirst(root);
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
+                //出队
                 TreeNode node = queue.removeLast();
                 if (node.left != null) {
+                    //入队
                     queue.addFirst(node.left);
                 }
                 if (node.right != null) {
+                    //入队
                     queue.addFirst(node.right);
                 }
                 //如果遍历到最后一个节点，就把他添加到结果集中
