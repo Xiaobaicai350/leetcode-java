@@ -15,7 +15,7 @@ import java.util.Scanner;
 17
  */
 public class Main2 {
-    public static void main1(String[] args) {
+    public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int t = in.nextInt();
         for (int i = 0; i < t; i++) {
@@ -32,24 +32,5 @@ public class Main2 {
             }
             System.out.println(maxY);
         }
-    }
-//3 2 1
-    //11
-    //100
-    //3
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int t = in.nextInt();
-        for (int i = 0; i < t; i++) {
-            int x = in.nextInt();
-            int k = in.nextInt();
-            while (x>>1!=0){
-
-
-                x>>=1;
-
-            }
-        }
-        System.out.println(3>>1);
     }
 }
