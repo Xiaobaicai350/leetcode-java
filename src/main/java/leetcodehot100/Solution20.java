@@ -21,9 +21,9 @@ class Solution20 {
         Deque<Character> stack = new LinkedList<>();
         for (int i = 0; i < n; i++) {
             //模拟栈的弹栈和入栈
-            char ch = s.charAt(i);
-            if (pairs.containsKey(ch)) {
-                if (stack.peek() != pairs.get(ch)) {
+            char ch = s.charAt(i);//()
+            if (pairs.containsKey(ch)) {//如果是)]}的话
+                if (stack.peek() != pairs.get(ch)) {//需要判断栈顶
                     return false;
                 }
                 stack.pop();
