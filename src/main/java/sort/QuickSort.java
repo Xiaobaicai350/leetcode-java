@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class QuickSort {
     public static void main(String[] args) {
-        int[] ints = {5, 4, 3, 2, 1};
+        int[] ints = {1, 10, 12, 4, 5, 6, 7, 8, 9, 10};
         quickSort(ints, 0, ints.length - 1);
         System.out.println(Arrays.toString(ints));
     }
@@ -28,7 +28,7 @@ public class QuickSort {
         // 将基准值交换到数组第一个位置
         swap(nums, start, pivotIndex);
         int pivot = nums[start];//基准值
-        int left = start;//遍历的下标
+        int left = start + 1;//遍历的下标
         int right = end;//遍历的下标
         while (left < right) {
             while (left < right && nums[right] > pivot) {//从右往左遍历，找到第一个小于等于基准值的元素
