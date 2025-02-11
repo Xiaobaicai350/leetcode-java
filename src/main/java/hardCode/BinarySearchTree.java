@@ -11,20 +11,18 @@ public class BinarySearchTree {
         root = insertR(root, val);
     }
 
-    // 插入节点，返回值为根节点
+    // 递归插入节点，返回值
     public TreeNode insertR(TreeNode root, int val) {
-        // 如果树为空，返回新的节点
         if (root == null) {
-            root = new TreeNode(val);
-            return root;
+            return new TreeNode(val);
         }
-        // 否则，递归地向下查找正确的位置并插入
-        if (val < root.val) {
+        if (root.val > val) {//如果当前要插入的值，比当前遍历的节点小，那么就往左边插入
+            //如果就正好插入到了空节点，那么就新建一个节点
+            //如果就没有插入到空节点，那么就继续递归，其实这段代码就等于root.left=root.left了
             root.left = insertR(root.left, val);
-        } else if (val > root.val) {
+        } else if (root.val < val) {
             root.right = insertR(root.right, val);
         }
-        // 返回根节点
         return root;
     }
 
