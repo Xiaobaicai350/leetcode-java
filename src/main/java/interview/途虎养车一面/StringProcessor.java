@@ -20,9 +20,9 @@ public class StringProcessor {
         StringBuilder letters = new StringBuilder();//存储英文字母
 
         for (char ch : input.toCharArray()) {
-            if (Character.isDigit(ch)) {
+            if (Character.isDigit(ch)) {//如果是数字
                 uniqueDigits.add(ch);
-            } else if (Character.isLetter(ch)) {
+            } else if (Character.isLetter(ch)) {//如果是字母
                 // 只添加字母字符
                 letters.append(ch);
             }
