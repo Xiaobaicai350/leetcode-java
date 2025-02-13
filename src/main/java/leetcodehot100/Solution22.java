@@ -4,6 +4,16 @@ package leetcodehot100;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+数字 n 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 有效的 括号组合。
+示例 1：
+输入：n = 3
+输出：["((()))","(()())","(())()","()(())","()()()"]
+
+示例 2：
+输入：n = 1
+输出：["()"]
+ */
 // https://www.bilibili.com/video/BV16K411R7nm/?spm_id_from=333.337.search-card.all.click&vd_source=2259e5459a8cfd21bcf92bc46bf3beda
 //根据思路进行构建一颗二叉树，左边是加左括号，右边是加右括号。
 class Solution22 {
@@ -29,7 +39,7 @@ class Solution22 {
         }
         //并且如果r>l的时候就不能进去了，因为这时候已经不是一个有效的组合了
         //也就是说需要进行剪枝了
-        if (r < l) {
+        if (l > r) {
             recursive(str + ")", l, r + 1, n);
         }
         //这个递归的退出的时候其实就是这个方法里面没有语句的时候
