@@ -56,6 +56,7 @@ class Solution39 {
             // 遍历从start开始的数组元素，尝试将每个元素加入组合
             for (int i = start; i < candidates.length; i++) {
                 // 剪枝：如果当前元素大于剩余目标值，则后续元素也一定不满足条件，直接结束循环
+                //也可以不剪枝，只是一个优化
                 if (candidates[i] > target) {
                     break;
                 }
