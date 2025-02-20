@@ -34,6 +34,7 @@ class Solution75 {
             } else if (nums[mid] == 1) {
                 mid++;
             } else if (nums[mid] == 2) {
+                //注意，这里 mid 指针不移动，因为交换后 nums[mid] 的值可能是 0 或 1，需要再次检查这个位置的值。
                 swap(nums, mid, right);
                 right--;
             }
