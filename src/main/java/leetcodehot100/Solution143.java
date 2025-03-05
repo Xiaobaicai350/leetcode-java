@@ -10,7 +10,16 @@ import java.util.List;
 L0 → L1 → … → Ln - 1 → Ln
 请将其重新排列后变为：
 L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
+
+示例 1：
+输入：head = [1,2,3,4]
+输出：[1,4,2,3]
+
+示例 2：
+输入：head = [1,2,3,4,5]
+输出：[1,5,2,4,3]
  */
+//用list存储链表，然后按照规则重新构建链表
 class Solution143 {
     public void reorderList(ListNode head) {
         //安全性校验
