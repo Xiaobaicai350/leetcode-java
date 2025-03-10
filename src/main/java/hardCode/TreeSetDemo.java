@@ -1,7 +1,14 @@
 package hardCode;
 
+import entity.User;
+
+import java.util.Comparator;
 import java.util.TreeSet;
 
+/*
+TreeSet 是 Java 中的一个有序集合，它实现了 SortedSet 接口
+内部使用红黑树（一种自平衡的二叉搜索树）来存储元素，因此元素会按照自然顺序或者指定的比较器顺序进行排序。
+ */
 public class TreeSetDemo {
     public static void main(String[] args) {
         // 创建一个 TreeSet 对象，用于存储整数
@@ -43,5 +50,22 @@ public class TreeSetDemo {
         for (Integer number : numbers) {
             System.out.println(number);
         }
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
+        // 自定义比较器，按照 age 升序排序
+        Comparator<User> comparing = Comparator.comparing(User::getAge);
+        TreeSet<User> users = new TreeSet<>(comparing);
+        users.add(new User("Alice", 25));
+        users.add(new User("Bob", 20));
+        users.add(new User("Charlie", 30));
+
+        for (User user : users) {
+            System.out.println(user);
+        }
+        /*
+        User{name='Bob', age=20}
+        User{name='Alice', age=25}
+        User{name='Charlie', age=30}
+         */
     }
 }
