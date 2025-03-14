@@ -46,4 +46,21 @@ class Solution239 {
         }
         return res;
     }
+    public int[] maxSlidingWindow2(int[] nums, int k) {
+        int n = nums.length;
+        int[] res = new int[n - k + 1]; // 创建数组记录每个窗口的最大值
+
+        // 外层循环遍历数组，确定滑动窗口的起始位置
+        for (int i = 0; i <= n - k; i++) {
+            int max = nums[i];
+            // 内层循环遍历当前滑动窗口内的元素，找出最大值
+            for (int j = i + 1; j < i + k; j++) {
+                if (nums[j] > max) {
+                    max = nums[j];
+                }
+            }
+            res[i] = max;
+        }
+        return res;
+    }
 }
