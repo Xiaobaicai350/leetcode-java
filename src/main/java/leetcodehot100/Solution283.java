@@ -8,7 +8,7 @@ package leetcodehot100;
 示例 2:
 输入: nums = [0]
 输出: [0]
-//这道题其实是有一个误解，因为一直是把0交换到后面，所以i++之后所有的i都是为0的
+//这道题其实是有一个误解，因为一直是把0交换到后面，所以i++之后所有的i都是为0的，0其实一直走往后移
  */
 class Solution283 {
     public void moveZeroes(int[] nums) {
