@@ -8,6 +8,8 @@ package leetcodehot100;
 输入：matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5
 输出：true
  */
+
+//由于这个数组的特性，所以要从左下角开始遍历
 class Solution240 {
     public boolean searchMatrix(int[][] matrix, int target) {
         // 进行安全性校验
