@@ -19,82 +19,50 @@ import java.util.*;
 输出：["a","b","c"]
  */
 class Solution17 {
-    Map<Character, String> phoneMap = new HashMap<>();
+    Map<Character, String> map = new HashMap<>();
 
     {
-        phoneMap.put('2', "abc");
-        phoneMap.put('3', "def");
-        phoneMap.put('4', "ghi");
-        phoneMap.put('5', "jkl");
-        phoneMap.put('6', "mno");
-        phoneMap.put('7', "pqrs");
-        phoneMap.put('8', "tuv");
-        phoneMap.put('9', "wxyz");
+        map.put('2', "abc");
+        map.put('3', "def");
+        map.put('4', "ghi");
+        map.put('5', "jkl");
+        map.put('6', "mno");
+        map.put('7', "pqrs");
+        map.put('8', "tuv");
+        map.put('9', "wxyz");
     }
 
     //结果集
-    List<String> combinations = new ArrayList<>();
+    List<String> res = new ArrayList<>();
 
     //入口，返回所有它能表示的字母组合
     public List<String> letterCombinations(String digits) {
-        //特殊情况特殊处理
-        if (digits.equals("")) {
-            return combinations;
+        if (digits.length() == 0) {
+            return res;
         }
-        backtrack(digits, 0, "");
-        return combinations;
+        back(digits, 0, "");
+        return res;
     }
 
-
-    /**
-     * @param digits      输入的数字
-     * @param index       数字的下标
-     * @param combination 组合
-     */
-    private void backtrack(String digits, int index, String combination) {
-        if (index == digits.length()) {
-            combinations.add(combination);
+    private void back(String digits, int index, String curCombine) {
+        if (curCombine.length() == digits.length()) {
+            res.add(curCombine);
         } else {
-            //得到当前位置上的数字
-            char digit = digits.charAt(index);
-            //通过数字得到对应的字母
-            String letters = phoneMap.get(digit);
-            int lettersCount = letters.length();
-            for (int i = 0; i < lettersCount; i++) {
-                backtrack(digits, index + 1, combination + letters.charAt(i));
+            char c = digits.charAt(index);
+            String s = map.get(c);
+            for (int i = 0; i < s.length(); i++) {
+                char singleC = s.charAt(i);
+                //不能这样写，因为string是个引用，不能改变curCombie的值
+//                curCombine = curCombine + singleC;
+//                back(digits, index + 1, );
+                back(digits, index + 1, curCombine + singleC);
             }
         }
     }
 
-
-    // 非递归方法
-    public List<String> letterCombinations1(String digits) {
-        List<String> combinations = new ArrayList<>();
-        // 特殊情况特殊处理
-        if (digits.isEmpty()) {
-            return combinations;
-        }
-
-        Queue<String> queue = new LinkedList<>();
-        queue.offer("");
-
-        for (int i = 0; i < digits.length(); i++) {//遍历输入的数字
-            char digit = digits.charAt(i);//得到当前位置上的数字
-            String letters = phoneMap.get(digit);//通过数字得到对应的字母
-            int size = queue.size();//得到队列的大小
-            for (int j = 0; j < size; j++) {//遍历队列
-                String current = queue.poll();//得到当前的字符串
-                for (char letter : letters.toCharArray()) {
-                    queue.offer(current + letter);//将当前的字符串加上字母，然后加入队列
-                }
-            }
-        }
-
-        while (!queue.isEmpty()) {
-            combinations.add(queue.poll());
-        }
-
-        return combinations;
+    public static void main(String[] args) {
+        List<String> res = new Solution17().letterCombinations("23");
+        System.out.println(res.toString());
     }
 }
 
