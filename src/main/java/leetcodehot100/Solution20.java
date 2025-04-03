@@ -1,9 +1,6 @@
 package leetcodehot100;
 
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.*;
 
 /*
 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。
@@ -44,7 +41,7 @@ class Solution20 {
         pairs.put('}', '{');
 
         //新建一个栈
-        Deque<Character> stack = new LinkedList<>();
+        Stack<Character> stack = new Stack<>();
         for (int i = 0; i < n; i++) {
             //模拟栈的弹栈和入栈
             char ch = s.charAt(i);//
