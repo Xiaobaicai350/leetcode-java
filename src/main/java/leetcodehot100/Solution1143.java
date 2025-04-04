@@ -19,7 +19,9 @@ dp[i][j]
 0123
  */
 /**
- * 其实我感觉这道题就是看这两个字符串里面有多少相同的字符，按顺序来看，如果相同就+1
+ * 递推公式是
+ * 当text[i]==text[j]时 dp[i+1][j+1]=dp[i][j]+1;
+ * 当text[i]!=text[j]时 dp[i+1][j+1]=max(dp[i][j+1],dp[i+1][j]);
  */
 class Solution1143 {
     public int longestCommonSubsequence(String text1, String text2) {

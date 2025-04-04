@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
-给你二叉树的根节点 root 和一个整数目标和 targetSum ，找出所有 从根节点到叶子节点 路径总和等于给定目标和的路径。
+给你二叉树的根节点 root 和一个整数为目标和 ：targetSum ，找出所有 从根节点到叶子节点 路径总和等于给定目标和的路径。
 叶子节点 是指没有子节点的节点。
 输入：root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22
 输出：[[5,4,11,2],[5,8,4,5]]
@@ -23,6 +23,7 @@ class SolutionLCR153 {
         return res;
     }
 
+    //dfs的意思是从node到叶子节点的路径和为target
     public void dfs(TreeNode node, int target) {
         if (node == null) return;
         // 说明node不为null
@@ -39,6 +40,7 @@ class SolutionLCR153 {
         }
         dfs(node.left, target);
         dfs(node.right, target);
+        //回溯
         path.remove(path.size() - 1);
     }
 }

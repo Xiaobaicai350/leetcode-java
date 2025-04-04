@@ -6,6 +6,7 @@ import java.util.Deque;
 public class Solution232 {
 }
 
+/*用栈实现队列*/
 /*
     思路
     将一个栈当作输入栈，用于压入push传入的数据；

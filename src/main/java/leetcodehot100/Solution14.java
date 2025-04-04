@@ -3,6 +3,15 @@ package leetcodehot100;
 /*
 输入：strs = ["flower","flow","flight"]
 输出："fl"
+
+输入：strs = ["dog","racecar","car"]
+输出：""
+解释：输入不存在公共前缀。
+ */
+
+/**
+ * 编写一个函数来查找字符串数组中的最长公共前缀。
+ * 如果不存在公共前缀，返回空字符串 ""。
  */
 class Solution14 {
     public String longestCommonPrefix(String[] strs) {
@@ -15,6 +24,7 @@ class Solution14 {
         int count = strs.length;
         //循环第一个字符串
         for (int i = 0; i < length; i++) {
+            //拿到第一个字符串的第一个字母
             char c = strs[0].charAt(i);
             //从第二个字符串开始循环
             for (int j = 1; j < count; j++) {

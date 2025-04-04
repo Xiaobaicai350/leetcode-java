@@ -21,9 +21,9 @@ import java.util.LinkedList;
  */
 class Solution224 {
     public int calculate(String s) {
-        // 使用双端队列存储每个括号层级的符号
-        Deque<Integer> deque = new LinkedList<>();
-        deque.push(1);
+        // 创建栈存储每个括号层级的符号
+        Deque<Integer> stark = new LinkedList<>();
+        stark.push(1);//初始时，将 1 压入队列，表示最外层的符号为正。
         int sign = 1;  // 当前数字的符号
 
         int res = 0;  // 最终结果
@@ -33,16 +33,16 @@ class Solution224 {
             if (s.charAt(i) == ' ') {
                 i++;  // 跳过空格
             } else if (s.charAt(i) == '+') {
-                sign = deque.peek();  // 更新符号为当前层级的符号
+                sign = stark.peek();  // 更新符号为当前层级的符号
                 i++;
             } else if (s.charAt(i) == '-') {
-                sign = -deque.peek();  // 更新符号为当前层级符号的相反数
+                sign = -stark.peek();  // 更新符号为当前层级符号的相反数
                 i++;
             } else if (s.charAt(i) == '(') {
-                deque.push(sign);  // 将当前符号压入栈，进入新的层级
+                stark.push(sign);  // 将当前符号压入栈，进入新的层级
                 i++;
             } else if (s.charAt(i) == ')') {
-                deque.pop();  // 退出当前层级
+                stark.pop();  // 退出当前层级
                 i++;
             } else {
                 long num = 0;

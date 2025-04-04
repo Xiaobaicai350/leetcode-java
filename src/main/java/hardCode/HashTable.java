@@ -86,30 +86,5 @@ class HashTable<K, V> {
         return size == 0;
     }
 }
-class Main {
-    public static void main(String[] args) {
-        HashTable<String, Integer> myHashMap = new HashTable<>();
 
-        // 插入键值对
-        myHashMap.put("one", 1);
-        myHashMap.put("two", 2);
-        myHashMap.put("three", 3);
-
-        // 获取值
-        System.out.println("Value for key 'one': " + myHashMap.get("one")); // 输出: 1
-        System.out.println("Value for key 'two': " + myHashMap.get("two")); // 输出: 2
-
-        // 删除键值对
-        System.out.println("Removed value for key 'two': " + myHashMap.remove("two")); // 输出: 2
-
-        // 尝试获取已删除的键
-        System.out.println("Value for key 'two' after removal: " + myHashMap.get("two")); // 输出: null
-
-        // 检查哈希表是否为空
-        System.out.println("Is hash table empty? " + myHashMap.isEmpty()); // 输出: false
-
-        // 获取哈希表的大小
-        System.out.println("Size of hash table: " + myHashMap.size()); // 输出: 2
-    }
-}
 
