@@ -1,3 +1,5 @@
+package hardCode;
+
 public class PrintPattern {
     /*
     打印
