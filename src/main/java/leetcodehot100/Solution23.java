@@ -26,6 +26,10 @@ public class Solution23 {
         return sortList(dummy.next);
     }
 
+    //1.退出条件 head == null || head.next == null
+    //2.定义快慢指针，找到中间位置
+    //3.递归，返回头-》中间 中间-〉尾的有序链表
+    //4.合并左右两个有序链表
     private ListNode sortList(ListNode head) {
         // 处理特殊情况
         if (head == null || head.next == null) {
