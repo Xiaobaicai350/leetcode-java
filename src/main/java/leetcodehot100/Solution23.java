@@ -8,70 +8,61 @@ import entity.ListNode;
  */
 public class Solution23 {
     public ListNode mergeKLists(ListNode[] lists) {
-        ListNode dummy = new ListNode(0);
-        //用于连接链表
+        ListNode dummy = new ListNode();
         ListNode cur = dummy;
-
-        // 先将k条链表合并为一条链表
+        //链接k个升序链表
         for (int i = 0; i < lists.length; i++) {
-            //将cur去连接每一个链表
             cur.next = lists[i];
-            //遍历到链表的尾节点
             while (cur.next != null) {
                 cur = cur.next;
             }
+            //现在cur在一条链表的末尾节点位置
         }
-
-        // 对链表进行排序
-        return sortList(dummy.next);
+        //注意这里传的是dummy.next 因为dummy这个节点不用排序
+        return sortLists(dummy.next);
     }
 
-    //1.退出条件 head == null || head.next == null
-    //2.定义快慢指针，找到中间位置
-    //3.递归，返回头-》中间 中间-〉尾的有序链表
-    //4.合并左右两个有序链表
-    private ListNode sortList(ListNode head) {
-        // 处理特殊情况
-        if (head == null || head.next == null) {
-            return head;
+    private ListNode sortLists(ListNode node) {
+        //1.递归出口
+        if (node == null || node.next == null) {
+            //到这里说吗没必要排序了
+            return node;
         }
-
-        // 找到中间位置，定义快慢指针
-        ListNode left = head;
-        ListNode right = head.next;
-        while (right != null && right.next != null) {
-            left = left.next;
-            right = right.next.next;
+        //2.走到中间，把这条链表分成 头-》中间     中间-》尾巴 两条链表
+        //不在同一起跑线是为了在链表长度为偶数时，更方便地将链表从中间断开。
+        ListNode slow = node;
+        ListNode fast = node.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
-
-        // 当执行到这里时，left指向中间位置
-        ListNode mid = left.next;
-        left.next = null;
-
-        // 递归，注意返回的是排序后的头节点
-        ListNode l = sortList(head);
-        ListNode r = sortList(mid);
-
-        // 合并左右两个有序链表
-        ListNode res = new ListNode(0);
-        ListNode ans = res;
+        //现在slow在中间
+        //断开连接
+        ListNode mid = slow.next;
+        slow.next = null;
+        //返回的是左/右表排序好的头节点
+        ListNode l = sortLists(node);
+        ListNode r = sortLists(mid);
+        ListNode dummy = new ListNode();
+        ListNode cur = dummy;
         while (l != null && r != null) {
-            if (l.val < r.val) {
-                res.next = l;
-                l = l.next;
-            } else {
-                res.next = r;
+            if (l.val > r.val) {
+                cur.next = r;
                 r = r.next;
+                cur = cur.next;
+            } else {
+                cur.next = l;
+                l = l.next;
+                cur = cur.next;
             }
-            res = res.next;
         }
-
-        if (l == null) {
-            res.next = r;
-        } else {
-            res.next = l;
+        // 处理剩余节点
+        if (l != null) {
+            cur.next = l;
         }
-
-        return ans.next;
+        if (r != null) {
+            cur.next = r;
+        }
+        return dummy.next;
     }
 }
