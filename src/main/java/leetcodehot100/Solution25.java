@@ -22,7 +22,7 @@ k 是一个正整数，它的值小于或等于链表的长度。如果节点总
  */
 public class Solution25 {
     public ListNode reverseKGroup(ListNode head, int k) {
-        ListNode dummy = new ListNode(0);
+        ListNode dummy = new ListNode();
         dummy.next = head;
         ListNode start = dummy;
         ListNode end = dummy;
