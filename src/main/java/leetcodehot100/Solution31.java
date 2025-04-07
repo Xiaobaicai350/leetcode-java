@@ -27,25 +27,26 @@ package leetcodehot100;
 public class Solution31 {
     //给你一个整数数组 nums ，找出 nums 的下一个排列。
     public void nextPermutation(int[] nums) {
-        //数组倒数第二个下标
-        int i = nums.length - 2;
-        // 1.从右往左查找，找到第一个递减的元素
-        while (i >= 0 && nums[i] >= nums[i + 1]) {
+        //1.从右往左找到第一个递减的元素，所以要从倒数第二个元素进行遍历
+        int i=nums.length-2;
+        //在 [1, 2, 3, 4] 中，从右向左第一个递减的元素是 3。
+        while (i>=0&&nums[i]>=nums[i+1]){
             i--;
         }
-
-        //2. 从右向左查找第一个大于该元素的元素
-        if (i >= 0) {//这里不满足说明这个排列就是目前最大的了，需要把它变成最小的也就是[3,2,1]-》[1,2,3]
-            int j = nums.length - 1;
-            while (j >= 0 && nums[i] >= nums[j]) {
+        //2.从右往左找到第一个大于该元素的元素
+        if(i>=0){//如果是最大的排列[3,2,1]这种，那么i=-1，就不会走这个if,直接反转,就会走下面的
+            //现在i指向的是第一个递减的元素
+            int j=nums.length-1;
+            //在 [1, 2, 3, 4] 中，从右向左第一个大于 3 的元素是 4。
+            while (j>=0&&nums[j]<=nums[i]){
                 j--;
             }
-            //3.交换这两个元素：
-            swap(nums, i, j);
+            //现在j指向的是第一个大于该元素的元素
+            //3.交换这两个元素
+            swap(nums,i,j);
         }
-
-        // 4.反转交换位置之后的所有元素
-        reverse(nums, i + 1, nums.length - 1);
+        //4.反转交换位置之后的所有元素，也就是反转i+1到数组末尾的元素
+        reverse(nums,i+1,nums.length-1);
     }
 
     // 用于交换数组中的两个元素
