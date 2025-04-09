@@ -21,10 +21,6 @@ package leetcodehot100;
 输出：-1
  */
 
-/**
- * 其实还是二分查找。
- * 只是再比较的时候再加一个判断就可以拉
- */
 class Solution33 {
     public int search(int[] nums, int target) {
         int left = 0;
@@ -33,17 +29,20 @@ class Solution33 {
             int mid = (right + left) / 2;
             if (nums[mid] == target) {
                 return mid;
-            } else if (nums[left] <= nums[mid]) { // 如果左边界比中间的小的话，说明左边是没翻转的，也就是说左边是连续递增的
-                // 如果target比中间这个小，并且target在左边，说明target就在左边这部分
-                if (target < nums[mid] && nums[left] <= target) {
-                    //所以更改右指针。
+            } else if (nums[left] <= nums[mid]) {//需要注意这里还有一个=
+                //进到这里说明mid左边是有序的
+                //1.最左边小于目标大小，说明从left到目标是递增的，如果不递增，说明中间存在旋转位置。
+                //2.中间位置小于目标大小，说明就是在左边，需要修改right
+                if (nums[left] <= target && nums[mid] > target) {
+                    //进到这里说明target在mid左边
                     right = mid - 1;
-                } else { // 否则就没在，说明在右边
+                } else {
                     left = mid + 1;
                 }
-            } else {// 否则说明右边是没翻转的，也就是右边是连续递增的
-                //这个跟上面的同理。
-                if (nums[mid] < target && target <= nums[right]) {
+            } else {
+                //进到这里说明mid右边是有序的
+                if (nums[right] >= target && nums[mid] < target) {
+                    //说明target在mid的右边
                     left = mid + 1;
                 } else {
                     right = mid - 1;
@@ -51,5 +50,9 @@ class Solution33 {
             }
         }
         return -1;
+    }
+
+    public static void main(String[] args) {
+        new Solution33().search(new int[]{4, 5, 6, 7, 0, 1, 2}, 0);
     }
 }
