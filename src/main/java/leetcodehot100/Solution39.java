@@ -26,48 +26,29 @@ candidates 中的 同一个 数字可以 无限制重复被选取 。如果至�
 输出: []
  */
 class Solution39 {
-    private List<List<Integer>> res;
-    private List<Integer> path;
+    List<List<Integer>> res = new ArrayList<>();
+    ArrayList<Integer> cur = new ArrayList<>();
+
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        res = new ArrayList<>();
-        path = new ArrayList<>();
-        // 对候选人数组进行排序，便于剪枝操作
         Arrays.sort(candidates);
-        dfs(candidates, 0, target);
+        dfs(candidates, target, 0);
         return res;
     }
 
-    /**
-     * 深度优先搜索辅助方法，递归寻找所有组合。
-     *
-     * @param candidates 候选人数组
-     * @param start      开始搜索的索引位置，避免重复使用同一层的元素
-     * @param target     当前需要减小到的目标值
-     */
-
-    private void dfs(int[] candidates, int start, int target) {
-        // 如果目标值减为0，说明找到了一个合法组合
-        if (target == 0) {
-            // 复制当前路径并添加到结果列表中
-            List<Integer> tmp = new ArrayList<>(path);
-            res.add(tmp);
+    private void dfs(int[] candidates, int target, int sum) {
+        if (sum == target) {
+            ArrayList<Integer> temp = new ArrayList<>(cur);
+            res.add(temp);
+            return;
+        } else if (sum > target) {
+            return;
         } else {
-            // 遍历从start开始的数组元素，尝试将每个元素加入组合
-            for (int i = start; i < candidates.length; i++) {
-                // 剪枝：如果当前元素大于剩余目标值，则后续元素也一定不满足条件，直接结束循环
-                //也可以不剪枝，只是一个优化
-                if (candidates[i] > target) {
-                    break;
-                }
-                // 选择当前元素，将其加入路径
-                path.add(candidates[i]);
-                // 继续搜索，更新目标值为减去当前元素后的值，同时保持i不变允许重复选择
-                dfs(candidates, i, target - candidates[i]);
-                // 回溯，移除刚加入的元素，尝试其他组合
-                path.remove(path.size() - 1);
+            for (int i = 0; i < candidates.length; i++) {
+                cur.add(candidates[i]);
+                dfs(candidates, target, sum + candidates[i]);
+                cur.remove(cur.size() - 1);
             }
         }
-
     }
 }
