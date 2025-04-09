@@ -32,11 +32,13 @@ class Solution39 {
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         Arrays.sort(candidates);
-        dfs(candidates, target, 0);
+        dfs(candidates, target, 0, 0);
         return res;
     }
 
-    private void dfs(int[] candidates, int target, int sum) {
+    //需要注意的是start是为了避免添加重复的结果，所以需要记录start
+    //并且需要注意的是如果res直接添加cur，cur是一个引用会被其他给修改，这样得到的结果全是空的，不合题意，所以需要新建一个temp
+    private void dfs(int[] candidates, int start, int target, int sum) {
         if (sum == target) {
             ArrayList<Integer> temp = new ArrayList<>(cur);
             res.add(temp);
@@ -44,9 +46,9 @@ class Solution39 {
         } else if (sum > target) {
             return;
         } else {
-            for (int i = 0; i < candidates.length; i++) {
+            for (int i = start; i < candidates.length; i++) {
                 cur.add(candidates[i]);
-                dfs(candidates, target, sum + candidates[i]);
+                dfs(candidates, target, start + 1, sum + candidates[i]);
                 cur.remove(cur.size() - 1);
             }
         }
