@@ -22,6 +22,7 @@ class Solution35 {
         int left = 0;
         int right = n - 1;
         int ans = n;
+        //其实这道题跟二分查找的区别就是不停的去更新ans，当处于mid和left之间就进行更新，如果到最后其实ans就是结果了
         while (left <= right) {
             //计算中间位置
             int mid = (right + left) / 2;
