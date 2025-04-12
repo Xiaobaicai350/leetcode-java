@@ -17,38 +17,33 @@ i + j < n
 输入: nums = [2,3,0,1,4]
 输出: 2
  */
+
 /**
  * 跟上题一样，但是侧重点不一样。需要注意的是，这道题必然可以走到终点，跟上题不太一样
  * 采用贪心的思想，每一步都选择能到达的最大位置就好了
- * 其实基本的思想就是不停的更新cover的最大值，就找最大的cover，如果不符合题意就直接返回了
  * cover的意思就是范围到数组的哪个下标了
+ * 贪心选择性质指的是问题的全局最优解可以通过一系列局部最优选择得到。在本题里，每一步都选择能到达的最远位置，就是局部最优选择。
+ * 在每一个位置 i 时，我们会计算从这个位置出发能到达的最远位置 i + nums[i]，并更新 cover 为当前所能到达的最远位置。当遍历到当前步的边界 end 时，就进行一次跳跃，把 end 更新为 cover。
+ * 由于每一次跳跃都尽可能跳到最远的位置，这就保证了在跳跃次数最少的情况下覆盖更大的范围。每一次跳跃都是在当前可选的跳跃方案中选择了能到达最远位置的方案，通过不断重复这个局部最优选择，最终可以用最少的跳跃次数到达终点。
  */
 class Solution45 {
     public int jump(int[] nums) {
-        int length = nums.length;
-        //end其实是记录每一步可以走到哪里
-        int end = 0;
-        // 用于记录最大可以走过的位置
+        int len = nums.length;
         int cover = 0;
-        // 用于记录步数，用于返回结果
-        int steps = 0;
-        // 注意这里，没有必要访问最后一个元素
-        // 因为访问最后一个元素之前，我们的边界一定大于等于最后一个位置，否则就无法跳到最后一个位置了，
-        // 所以没有必要访问最后一个元素，也就是说最后一个元素不管是几都无所谓
-        for (int i = 0; i < length - 1; i++) {
-            // 遍历，遍历得到最远的位置之后，如果走到了那个位置的话，就记录步数
-            //2 5 6 7
-            cover = Math.max(cover, i + nums[i]);
-            //0 2
-            if (i == end) {
-                end = cover;
-                steps++;
+        int end = 0;
+        int step=0;
+        for (int i = 0; i < len - 1; i++) {
+            cover=Math.max(cover,i+nums[i]);
+            if (i==end){
+                step++;
+                end=cover;
+                System.out.println(end);
             }
         }
-        return steps;
+        return step;
     }
 
     public static void main(String[] args) {
-        new Solution45().jump(new int[]{2,3,1,1,4});
+        new Solution45().jump(new int[]{2, 3, 1, 1, 4});
     }
 }
