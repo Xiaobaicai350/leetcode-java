@@ -1,5 +1,6 @@
 package leetcodehot100;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,36 +12,32 @@ import java.util.List;
 输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
  */
 class Solution46 {
-    // 最终的结果集
-    private List<List<Integer>> ans = new ArrayList<>();
-    // 用来存储每一个小组合结果
-    private List<Integer> path = new ArrayList<>();
-
-    // 标记这个位置上的数字是否被使用了
-    private boolean[] used;
+    List<List<Integer>> res = new ArrayList<>();
+    boolean[] used;
+    ArrayList<Integer> temp = new ArrayList<>();
 
     public List<List<Integer>> permute(int[] nums) {
         used = new boolean[nums.length];
-        dfs(nums, 0);
-        return ans;
+        dfs(0, nums);
+        return res;
     }
 
-    private void dfs(int[] nums, int index) {
-        if (index == nums.length) {//如果到这里说明该收获结果了
-            List<Integer> tmp = new ArrayList<>(path);
-            ans.add(tmp);
+    private void dfs(int index, int[] nums) {
+        if (index == nums.length) {
+            ArrayList<Integer> cur = new ArrayList<>(temp);
+            res.add(cur);
         } else {
             for (int i = 0; i < nums.length; i++) {
-                // 如果这个数字没被用过，就使用一下
                 if (!used[i]) {
-                    path.add(nums[i]);
                     used[i] = true;
-                    dfs(nums, index + 1);
-                    //开始回溯
+                    temp.add(nums[i]);
+                    dfs(i + 1, nums);
+                    temp.remove(temp.size() - 1);
                     used[i] = false;
-                    path.remove(path.size() - 1);
                 }
             }
         }
     }
+
+
 }
