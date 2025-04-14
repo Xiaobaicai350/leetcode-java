@@ -20,10 +20,10 @@ package leetcodehot100;
 // 先沿主对角线翻转，再沿竖直中线翻转
 class Solution48 {
     public void rotate(int[][] matrix) {
-        int n = matrix.length;
+        int row = matrix.length;
 
         // 沿主对角线翻转
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < row; i++) {//所以这一步之需要遍历下半部分就可以了
             for (int j = 0; j < i; j++) {
                 int temp = matrix[i][j];
                 matrix[i][j] = matrix[j][i];
@@ -32,11 +32,11 @@ class Solution48 {
         }
 
         // 沿竖直中线翻转
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n / 2; j++) {
+        for (int i = 0; i < row; i++) {//这只用遍历左半边，右半边row-j-1就可以了
+            for (int j = 0; j < row / 2; j++) {
                 int temp = matrix[i][j];
-                matrix[i][j] = matrix[i][n - j - 1];
-                matrix[i][n - j - 1] = temp;
+                matrix[i][j] = matrix[i][row - j - 1];
+                matrix[i][row - j - 1] = temp;
             }
         }
     }
